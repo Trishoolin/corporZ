@@ -18,9 +18,8 @@ class Settings_model extends CI_Model
     // Insert New records
     public function create($insertData)
     {
-        $result = $this->db->insert($this->_table, $insertData);
-
-        return $result;
+        $this->db->insert($this->_table, $insertData);
+		return $this->db->insert_id();
     }
 
     // get all records
