@@ -53,12 +53,7 @@ class Group_model extends CI_Model {
 		                  ->where( $this->name, $data )
 		                  ->where_not_in( $this->primary_key, $id )
 		                  ->get();
-		$num   = $query->num_rows();
-		if ( $num == 0 ) {
-			return true;
-		} else {
-			return false;
-		}
+		return ($query->num_rows() == 0);
 	}
 
 	// edit a record

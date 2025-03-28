@@ -124,11 +124,7 @@ class Home_model extends CI_Model
     public function checkSeoURLPages($seourl)
     {
         $query = $this->db->where('seourl', $seourl)->where('status', 'active')->get('blogs');
-        if ($query->num_rows() > 0) {
-            $results = $query->result();
-            return true;
-        }
-        return false;
+        return ($query->num_rows() > 0);
     }
 
     // Gallery 

@@ -58,11 +58,7 @@ class Student_model extends CI_Model
             ->from($this->_table)
             ->where($this->student_id, $student_id);
         $query = $this->db->get();
-        if ($query->num_rows() != 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return ($query->num_rows() != 0);
     }
 
     // update studetent by student id
@@ -81,12 +77,7 @@ class Student_model extends CI_Model
             ->where($this->name, $data)
             ->where_not_in($this->primary_key, $id)
             ->get();
-        $num = $query->num_rows();
-        if ($num == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return ($query->num_rows() == 0);
     }
 
 
