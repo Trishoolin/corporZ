@@ -18,9 +18,8 @@ class User_model extends CI_Model
    // Insert New records
    public function create($insertData)
    {
-      $result = $this->db->insert($this->_table, $insertData);
-
-      return $result;
+      $this->db->insert($this->_table, $insertData);
+      return $this->db->insert_id();
    }
 
    // get all records
@@ -76,29 +75,24 @@ class User_model extends CI_Model
         ->where($this->name, $data)
         ->where_not_in($this->primary_key, $id)
         ->get();
-      $num = $query->num_rows();
-      if ($num == 0) {
-         return true;
-      } else {
-         return false;
-      }
+      return ($query->num_rows() == 0);
    }
 
    // edit a record
    public function edit($updateData, $updateId)
    {
-      $result = $this->db->where($this->primary_key, $updateId)->update($this->_table, $updateData);
+      $this->db->where($this->primary_key, $updateId)->update($this->_table, $updateData);
 
-      return $result;
+		return (bool) $this->db->affected_rows();
    }
 
 
    // delete a record
    public function delete($id)
    {
-      $result = $this->db->delete($this->_table, array($this->primary_key => $id));
+      $this->db->delete($this->_table, array($this->primary_key => $id));
 
-      return $result;
+		return (bool) $this->db->affected_rows();
    }
 
 }

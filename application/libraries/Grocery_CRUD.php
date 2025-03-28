@@ -2779,13 +2779,13 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 					unset($this->add_fields[$field_num]);
 					unset($fields[$field_num]);
 					// continue;
-				break;
+					break;
 				case 'hidden':
 					$this->add_hidden_fields[] = $field_input;
 					unset($this->add_fields[$field_num]);
 					unset($fields[$field_num]);
 					// continue;
-				break;
+					break;
 			}
 
 			$input_fields[$field->field_name] = $field_input;
@@ -2822,13 +2822,13 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 					unset($this->edit_fields[$field_num]);
 					unset($fields[$field_num]);
 					// continue;
-				break;
+					break;
 				case 'hidden':
 					$this->edit_hidden_fields[] = $field_input;
 					unset($this->edit_fields[$field_num]);
 					unset($fields[$field_num]);
 					// continue;
-				break;
+					break;
 			}
 
 			$input_fields[$field->field_name] = $field_input;
@@ -2844,7 +2844,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		$this->field_types = null;
 		$this->required_fields = null;
 
-		$read_inputs = array();
+		// $read_inputs = array();
 		foreach ($read_fields as $field) {
 			if (!empty($this->change_field_type)
 					&& isset($this->change_field_type[$field->field_name])
@@ -3806,7 +3806,7 @@ class Grocery_CRUD extends grocery_CRUD_States
 	 * */
 	public function unset_view()
 	{
-		return unset_read();
+		return $this->unset_read();
 	}
 
 	/**

@@ -26,12 +26,8 @@ class M_admin_dashboard extends CI_Model {
 	}
 
 	public function admin_profile_update_process( $change_password, $id ) {
-		$result = $this->db->where( 'user_id', $id )->update( 'users', $change_password );
-		if ( $result ) {
-			return true;
-		} else {
-			return false;
-		}
+		$this->db->where( 'user_id', $id )->update( 'users', $change_password );
+		return (bool) $this->db->affected_rows();
 	}
 
 	public function get_all_group()

@@ -28,7 +28,8 @@ class Contact extends CI_Controller
                 'message' => $_POST['form_message'],
                 'created' => date('Y-m-d h:i:s'),
             );
-            $ID = $this->db->insert('contactus', $contactData);
+            $this->db->insert('contactus', $contactData);
+            $ID = $this->db->insert_id();
             if ($ID) {
                 $this->session->set_flashdata('msg', '<div class="alert alert-success">We will get back to you soon, Thank You!</div>');
             } else {

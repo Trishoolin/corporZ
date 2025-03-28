@@ -8,16 +8,16 @@ class Home_model extends CI_Model
 
         $query = $this->db->get('settings', 1);
         if ($query->num_rows() > 0) {
-            $result = $query->result();
+            $result = $query->row();
 
             $setting = array(
-                'name' => $result[0]->name,
-                'phone' => $result[0]->contact,
-                'email' => $result[0]->email,
-                'footer_about' => $result[0]->footer_about,
-                'logo' => 'assets/images/credit/' . $result[0]->file_path,
-                'footer_logo' => 'assets/images/credit/' . $result[0]->footer_logo,
-                'address' => $result[0]->address,
+                'name' => $result->name,
+                'phone' => $result->contact,
+                'email' => $result->email,
+                'footer_about' => $result->footer_about,
+                'logo' => 'assets/images/credit/' . $result->file_path,
+                'footer_logo' => 'assets/images/credit/' . $result->footer_logo,
+                'address' => $result->address,
             );
             return $setting;
         }
@@ -124,11 +124,7 @@ class Home_model extends CI_Model
     public function checkSeoURLPages($seourl)
     {
         $query = $this->db->where('seourl', $seourl)->where('status', 'active')->get('blogs');
-        if ($query->num_rows() > 0) {
-            $results = $query->result();
-            return true;
-        }
-        return false;
+        return ($query->num_rows() > 0);
     }
 
     // Gallery 
