@@ -84,18 +84,18 @@ class Student_model extends CI_Model
     // edit a record
     public function edit($updateData, $updateId)
     {
-        $result = $this->db->where($this->primary_key, $updateId)->update($this->_table, $updateData);
+        $this->db->where($this->primary_key, $updateId)->update($this->_table, $updateData);
 
-        return $result;
+		return (bool) $this->db->affected_rows();
     }
 
 
     // delete a record
     public function delete($id)
     {
-        $result = $this->db->delete($this->_table, array($this->primary_key => $id));
+        $this->db->delete($this->_table, array($this->primary_key => $id));
 
-        return $result;
+		return (bool) $this->db->affected_rows();
     }
 
 }
