@@ -16,6 +16,7 @@ class MY_Controller extends CI_Controller
     private $template_file; //single php file in the template folder
     private $template;      //the template folder
     private $output_mode;
+    private $diffthink;
 
     const TEMPLATE = 10;
     const NORMAL = 11;
