@@ -10,7 +10,7 @@ A completely Open Source Responsive Dynamic website using HTML, CSS, PHP Codeign
 # Contributor Team! 👋
 
 ## List
-⚡️ @CodeWife (facebook.com/codewife) Main Devloper
+⚡️ @Code-Wife (facebook.com/codewife) Main Original Devloper
 
 👩‍💻 @swamilax = (https://github.com/swamilax/) - Repository Manager, Front-end.
 
